@@ -68,5 +68,5 @@ Print_Sum:
 
 done:
      # EXIT PROGRAM
-     addi $v0, 10
+     addi $v0, $zero, 10
      syscall
