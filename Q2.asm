@@ -3,6 +3,8 @@
      B: .word 3, -1, 2, -9, -1, 4, 6, 11, 4
      myString: .asciiz "Array elements sum = " 
 .text
+### REGISTERS USED ###
+# $t1 and $t2 are used for the arrays
 addi $t4, $zero, 0    # Initial sum
 addi $t0, $zero, 0    # i = 0, index value for array
 addi $t3, $zero, 0    # loop counter
