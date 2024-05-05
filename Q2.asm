@@ -4,8 +4,8 @@
      myString: .asciiz "Array elements sum = " 
 .text
 addi $t4, $zero, 0    # Initial sum
-addi $t0, $zero, 0    # i = 0, index value for array, If we call back to this label, we reset the index value.
-addi $t3, $zero, 0    # loop counter. If we call back to this label, we reset the loop value.
+addi $t0, $zero, 0    # i = 0, index value for array
+addi $t3, $zero, 0    # loop counter
 
 Main:
      beq $t3, 9, Reset # for (int i = 0; i < 9)
