@@ -13,7 +13,7 @@ Main:
      beq $t3, 9, Reset # for (int i = 0; i < 9)
      lw $t1, A($t0) 	    # load the value of A[i] to t1
      lw $t2, B($t0) 	    # load value of B[i] to t2
-     add $t1, $t1, $t2     # compute sum of A[i] + {i} to t1
+     add $t1, $t1, $t2     # compute sum of A[i] + B[i] to t1
      sw $t1, A($t0) 	    # save t1 to the address of A[i] in memory
      jal Print 		    # Print for each iteration
      addi $t0, $t0, 4 	    # Update array index
@@ -67,3 +67,6 @@ Print_Sum:
      j done
 
 done:
+     # EXIT PROGRAM
+     addi $v0, 10
+     syscall
