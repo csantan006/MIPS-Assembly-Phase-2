@@ -9,18 +9,18 @@ addi $t4, $zero, 0    # Initial sum
 addi $t0, $zero, 0    # i = 0, index value for array
 addi $t3, $zero, 0    # loop counter
 
-Main:
+New_A:
      beq $t3, 9, Reset # for (int i = 0; i < 9)
      lw $t1, A($t0) 	    # load the value of A[i] to t1
      lw $t2, B($t0) 	    # load value of B[i] to t2
      add $t1, $t1, $t2     # compute sum of A[i] + B[i] to t1
      sw $t1, A($t0) 	    # save t1 to the address of A[i] in memory
-     jal Print 		    # Print for each iteration
+     jal Print_New_A		    # Print for each iteration
      addi $t0, $t0, 4 	    # Update array index
      addi $t3, $t3, 1 	    # Update loop counter (i++)
-     j Main 	    # repeat until loop counter is 9, then jump to Reset
+     j New_A 	    # repeat until loop counter is 9, then jump to Reset
      
-Print:
+Print_New_A:
     # Print values of the main for loop
      addi $v0, $zero, 1 # Make a service call to print an integer
      add $a0, $t1, $zero # Print the number
@@ -28,7 +28,7 @@ Print:
      addi $v0, $zero, 11 # Make a serive call to print a character
      addi $a0, $zero, 0xA # Print a new line
      syscall
-     jr $ra # Jump back to the next statement in the main loop after the print call
+     jr $ra # Jump back to the next statement in the loop after the print call
 
 Sum:
      beq $t3, 9, Print_String    # for (int i = 0; i < 9)
